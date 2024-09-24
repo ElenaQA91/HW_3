@@ -1,12 +1,12 @@
 from selene import browser, be, have
 
 
-def test_open_brawser():
+def test_open_brawser(browser_size):
     browser.open('https://google.com')
     browser.element('[name="q"]').should(be.blank).type('yashaka/selene').press_enter()
     browser.element('[id="search"]').should(have.text('User-oriented Web UI browser tests in Python'))
 
-def test_unsuccessful_brawser():
+def test_unsuccessful_brawser(browser_size):
     text = '868689698^%&%&%^&*'
     browser.open('https://google.com')
     browser.element('[name="q"]').should(be.blank).type(text).press_enter()
